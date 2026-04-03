@@ -8,12 +8,16 @@ func majorityElement(nums []int) int {
 	return solution4(nums)
 }
 
+
+
 // sort and pick middle: 0 ms
 func solution1(nums []int) int {
 	slices.Sort(nums)
 
 	return nums[len(nums)/2]
 }
+
+
 
 // counting: 0 ms
 func solution2(nums []int) int {
@@ -39,6 +43,8 @@ func solution2(nums []int) int {
 	return sortedCount[0].Key
 }
 
+
+
 // moore's voting: 0 ms
 func solution3(nums []int) int {
 	n, count := nums[0], 1
@@ -56,6 +62,8 @@ func solution3(nums []int) int {
 
 	return n
 }
+
+
 
 // divide and conquer: 0 ms
 func solution4(nums []int) int {
