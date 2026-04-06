@@ -21,7 +21,7 @@ function solution1(s: string): number {
 
 
 
-// duplicate char's prev index:
+// duplicate char's prev index: 72 ms
 function solution2(s: string): number {
     const sarr = [...new Intl.Segmenter().segment(s)].map((x) => x.segment);
     let maxl = 0;
