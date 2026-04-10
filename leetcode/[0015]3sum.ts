@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/3sum/
 function threeSum(nums: number[]): number[][] {
-    return solution3(nums);
+    return solution4(nums);
 }
 
 
@@ -94,4 +94,33 @@ function twoSum(nums: number[], target: number): number[][] {
     }
 
     return a;
+}
+
+
+
+// sort and two pointers: 1446 ms
+function solution4(nums: number[]): number[][] {
+    const set = new Set<string>;
+
+    nums.sort((x, y) => x - y);
+
+    for (let i = 0; i < nums.length - 2; i++) {
+        let [j, k] = [i + 1, nums.length - 1];
+
+        while (j < k) {
+            const target = -nums[i];
+            const sum = nums[j] + nums[k];
+
+            if (sum < target) {
+                j += 1;
+            } else if (target < sum) {
+                k -= 1;
+            } else {
+                set.add(JSON.stringify([nums[i], nums[j], nums[k]]));
+                j += 1;
+            }
+        }
+    }
+
+    return [...set.keys()].map((x) => JSON.parse(x));
 }
